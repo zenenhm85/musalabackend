@@ -1,0 +1,867 @@
+{
+	"info": {
+		"_postman_id": "461576de-4364-462b-ad2c-fb98f0416f57",
+		"name": "Musala Soft",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\":\"zenen@gmail.com\",\r\n    \"password\":\"123456\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/api/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"login"
+					]
+				},
+				"description": "With this route you can authenticate in the system if you already have a valid user, specifying email and password\r\n{\r\n    \"email\":\"zenen@gmail.com\",\r\n    \"password\":\"123456\"\r\n}\r\nAnswer: \r\n{\r\n    \"ok\": true,\r\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI1ZjgwYWYyMDg0YjRlODEyOTBjNDMxNzgiLCJpYXQiOjE2MDIzNDMwOTEsImV4cCI6MTYwMjQyOTQ5MX0.Y3ZsEYHFh45s22cSaLTZvzJiOyInnzUg4YY15kQ14bs\"\r\n}\r\nthis generates a token that you must use as a header in the other requests, with the name x-token"
+			},
+			"response": []
+		},
+		{
+			"name": "Change Password",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "x-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI1ZjgwYWYyMDg0YjRlODEyOTBjNDMxNzgiLCJpYXQiOjE2MDIyNjkxNTMsImV4cCI6MTYwMjM1NTU1M30.Gt_8le6xQLmSS0bPyRvDUTbKiERx2OvLaMcPRSc6RWs",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\":\"zenen@gmail.com\",\r\n    \"password\":\"1234567\",\r\n    \"password2\":\"123456\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/api/login/change-password",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"login",
+						"change-password"
+					]
+				},
+				"description": "With this path you can change the password in the system, specifying, email, old password and new password\r\nBody example: \r\n{\r\n    \"email\":\"zenen@gmail.com\",\r\n    \"password\":\"1234567\",\r\n    \"password2\":\"123456\"\r\n}\r\nHeaders:\r\n\r\nkey = x-token\r\nvalue= eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI1ZjgwYWYyMDg0YjRlODEyOTBjNDMxNzgiLCJpYXQiOjE2MDIyNjkxNTMsImV4cCI6MTYwMjM1NTU1M30.Gt_8le6xQLmSS0bPyRvDUTbKiERx2OvLaMcPRSc6RWs\r\n"
+			},
+			"response": []
+		},
+		{
+			"name": "Create User",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"Test13 Test\",\r\n    \"email\":\"test13gmail.com\",\r\n    \"password\":\"123456\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/api/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"users"
+					]
+				},
+				"description": "You can create a new user, specifying full name, email and password, the password must have more than 5 characters\r\n\r\nBody Example:\r\n{\r\n    \"name\":\"Test Test\",\r\n    \"email\":\"test@gmail.com\",\r\n    \"password\":\"123456\"\r\n}"
+			},
+			"response": []
+		},
+		{
+			"name": "Create Gateway",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "x-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI1ZjgyN2U1ZDE2OGM5NDE1MjAxNDZmYTgiLCJpYXQiOjE2MDI0NzI2MTMsImV4cCI6MTYwMjU1OTAxM30.hlenk3574tg371SOzOlzvgqzXnWPqKMB-e51NDTa22U",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"test5\",\r\n    \"serial\":\"bc123df\",\r\n    \"ipv4\":\"255.254.5.6\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/api/gateways",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"gateways"
+					]
+				},
+				"description": "You can create a Gateway, specifying, name, serial and ipv4, the ipv4 with the correct format, the name and serial are required, serial with 6 alphanumeric characters\r\n\r\nBody Example:\r\n{\r\n    \"name\":\"test\",\r\n    \"serial\":\"bc123v\",\r\n    \"ipv4\":\"10.2.5.50\"\r\n}\r\n\r\nHeaders:\r\n\r\nkey = x-token\r\nvalue= eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI1ZjgwYWYyMDg0YjRlODEyOTBjNDMxNzgiLCJpYXQiOjE2MDIyNjkxNTMsImV4cCI6MTYwMjM1NTU1M30.Gt_8le6xQLmSS0bPyRvDUTbKiERx2OvLaMcPRSc6RWs\r\n"
+			},
+			"response": []
+		},
+		{
+			"name": "Create Device",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "x-token",
+						"type": "text",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI1ZjgwYWYyMDg0YjRlODEyOTBjNDMxNzgiLCJpYXQiOjE2MDIzNDM5MzgsImV4cCI6MTYwMjQzMDMzOH0.gSMwtMyM3aBLXr-5QiI44v4qDJneolVCvYGS8dqZ1cc"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"uid\":\"2\",\r\n    \"vendor\":\"Cisco\",\r\n    \"data\":\"2020-10-30\",\r\n    \"gateway\":\"5f81e04289c42721ec1a2a74\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/api/devices",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"devices"
+					]
+				},
+				"description": "You can create a peripheral device and assign it to a Gateway. The UID cannot be repeated for a gateway, and no more than 10 can be created on the same gateway\r\n\r\nBody Example:\r\n{\r\n    \"uid\":\"1\",\r\n    \"vendor\":\"Cisco\",\r\n    \"data\":\"2020-10-30\",\r\n    \"gateway\":\"5f81e04289c42721ec1a2a74\"\r\n}\r\n\r\nHeaders:\r\n\r\nkey = x-token\r\nvalue= eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI1ZjgwYWYyMDg0YjRlODEyOTBjNDMxNzgiLCJpYXQiOjE2MDIyNjkxNTMsImV4cCI6MTYwMjM1NTU1M30.Gt_8le6xQLmSS0bPyRvDUTbKiERx2OvLaMcPRSc6RWs\r\n\r\nAnswer:\r\n{\r\n    \"ok\": true,\r\n    \"device\": {\r\n        \"status\": true,\r\n        \"uid\": 2,\r\n        \"vendor\": \"Cisco\",\r\n        \"data\": \"2020-10-30T00:00:00.000Z\",\r\n        \"gateway\": \"5f81e04289c42721ec1a2a74\",\r\n        \"id\": \"5f82097fbfd3d8083c9d9c80\"\r\n    }\r\n}\r\n\r\n"
+			},
+			"response": []
+		},
+		{
+			"name": "Update User",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "x-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI1ZjgwYWYyMDg0YjRlODEyOTBjNDMxNzgiLCJpYXQiOjE2MDIyNjk1OTIsImV4cCI6MTYwMjM1NTk5Mn0.hRzMcwKbyB0biFJICYHuGM6inFIGiMlMzXXBASEBhqs",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"Test Test\",\r\n    \"email\":\"test@gmail.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/api/users/5f80af7a84b4e81290c43179",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"users",
+						"5f80af7a84b4e81290c43179"
+					]
+				},
+				"description": "change email or user name, you must send name or email, or both, and as a parameter of the path the user ID\r\n\r\nBody example\r\n{\r\n    \"name\":\"Test Test\",\r\n    \"email\":\"test@gmail.com\"\r\n}\r\n\r\nHeaders example: \r\nThis token generated with the login or renew token\r\nkey = x-token\r\nvalue= eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI1ZjgwYWYyMDg0YjRlODEyOTBjNDMxNzgiLCJpYXQiOjE2MDIyNjkxNTMsImV4cCI6MTYwMjM1NTU1M30.Gt_8le6xQLmSS0bPyRvDUTbKiERx2OvLaMcPRSc6RWs"
+			},
+			"response": []
+		},
+		{
+			"name": "Update Gateway",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "x-token",
+						"type": "text",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI1ZjgwYWYyMDg0YjRlODEyOTBjNDMxNzgiLCJpYXQiOjE2MDIyNjk1OTIsImV4cCI6MTYwMjM1NTk5Mn0.hRzMcwKbyB0biFJICYHuGM6inFIGiMlMzXXBASEBhqs"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"test1\",\r\n    \"serial\":\"abcccc\",\r\n    \"ipv4\":\"10.2.5.50\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/api/gateways/5f81e04289c42721ec1a2a74",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"gateways",
+						"5f81e04289c42721ec1a2a74"
+					]
+				},
+				"description": "You can change any field, keeping the same requirements to create. The Gateway ID is specified through the path\r\n\r\nBody example\r\n{\r\n    \"name\":\"test1\",\r\n    \"serial\":\"abc123\",\r\n    \"ipv4\":\"10.2.5.150\"\r\n}\r\n\r\nHeaders example: \r\nThis token generated with the login or renew token\r\nkey = x-token\r\nvalue= eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI1ZjgwYWYyMDg0YjRlODEyOTBjNDMxNzgiLCJpYXQiOjE2MDIyNjkxNTMsImV4cCI6MTYwMjM1NTU1M30.Gt_8le6xQLmSS0bPyRvDUTbKiERx2OvLaMcPRSc6RWs\r\n\r\nAnswer:\r\n{\r\n    \"ok\": true,\r\n    \"gateway\": {\r\n        \"name\": \"test1\",\r\n        \"serial\": \"abc123\",\r\n        \"ipv4\": \"10.2.5.150\",\r\n        \"id\": \"5f81e04289c42721ec1a2a74\"\r\n    }\r\n}\r\n\r\n"
+			},
+			"response": []
+		},
+		{
+			"name": "Update Device",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "x-token",
+						"type": "text",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI1ZjgwYWYyMDg0YjRlODEyOTBjNDMxNzgiLCJpYXQiOjE2MDIzNTg3NzksImV4cCI6MTYwMjQ0NTE3OX0.BUybL-SoIWWbTXvoYA0n_N8GmGjmzAMiVGQjxhpJsh4"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"uid\":\"2\",\r\n    \"vendor\":\"IBM\",\r\n    \"data\":\"2019-10-30\",\r\n    \"gateway\":\"5f81e04289c42721ec1a2a74\",\r\n    \"status\":true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/api/devices/5f82097fbfd3d8083c9d9c80",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"devices",
+						"5f82097fbfd3d8083c9d9c80"
+					]
+				},
+				"description": "You can change any field, keeping the same requirements to create. The Device ID is specified through the path\r\n\r\nBody example\r\n{\r\n    \"uid\":\"2\",\r\n    \"vendor\":\"IBM\",\r\n    \"data\":\"2019-10-30\",\r\n    \"gateway\":\"5f81e04289c42721ec1a2a74\",\r\n    \"status\":true\r\n}\r\n\r\nHeaders example: \r\nThis token generated with the login or renew token\r\nkey = x-token\r\nvalue= eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI1ZjgwYWYyMDg0YjRlODEyOTBjNDMxNzgiLCJpYXQiOjE2MDIyNjkxNTMsImV4cCI6MTYwMjM1NTU1M30.Gt_8le6xQLmSS0bPyRvDUTbKiERx2OvLaMcPRSc6RWs\r\n\r\nAnswer:\r\n{\r\n    \"ok\": true,\r\n    \"device\": {\r\n        \"status\": true,\r\n        \"uid\": 2,\r\n        \"vendor\": \"IBM\",\r\n        \"data\": \"2019-10-30T00:00:00.000Z\",\r\n        \"gateway\": \"5f81e04289c42721ec1a2a74\",\r\n        \"id\": \"5f82097fbfd3d8083c9d9c80\"\r\n    }\r\n}"
+			},
+			"response": []
+		},
+		{
+			"name": "Upload Image",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "x-token",
+						"type": "text",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI1ZjgwYWYyMDg0YjRlODEyOTBjNDMxNzgiLCJpYXQiOjE2MDIyNjk1OTIsImV4cCI6MTYwMjM1NTk5Mn0.hRzMcwKbyB0biFJICYHuGM6inFIGiMlMzXXBASEBhqs"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "img",
+							"type": "file",
+							"src": "/D:/2- DOCUMENTACION/0- Udemy/4- Angular Avanzado Lleva tus bases al siguiente nivel - MEAN/3. Estructuración de nuestro proyecto/plantilla/assets/images/users/2.jpg"
+						}
+					],
+					"options": {
+						"formdata": {}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/api/users/upload/5f80af2084b4e81290c43178",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"users",
+						"upload",
+						"5f80af2084b4e81290c43178"
+					]
+				},
+				"description": "With this path you can assign an image to the user, no larger than 3MB, you must specify the user's ID as a parameter and a form-data called img, only image extensions, .gif, .jpg, .png or jpeg are allowed\r\n\r\nform-data example:\r\nkey = img\r\nvalue = 2.jpg\r\n\r\n\r\nHeaders example: \r\nThis token generated with the login or renew token\r\nkey = x-token\r\nvalue= eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI1ZjgwYWYyMDg0YjRlODEyOTBjNDMxNzgiLCJpYXQiOjE2MDIyNjkxNTMsImV4cCI6MTYwMjM1NTU1M30.Gt_8le6xQLmSS0bPyRvDUTbKiERx2OvLaMcPRSc6RWs"
+			},
+			"response": []
+		},
+		{
+			"name": "Delete User",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "x-token",
+						"type": "text",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI1ZjgwYWYyMDg0YjRlODEyOTBjNDMxNzgiLCJpYXQiOjE2MDIyNjk1OTIsImV4cCI6MTYwMjM1NTk5Mn0.hRzMcwKbyB0biFJICYHuGM6inFIGiMlMzXXBASEBhqs"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "img",
+							"type": "file",
+							"src": [],
+							"disabled": true
+						}
+					],
+					"options": {
+						"formdata": {}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/api/users/5f80af7a84b4e81290c43179",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"users",
+						"5f80af7a84b4e81290c43179"
+					]
+				},
+				"description": "Delete a user, specifying their ID as a path parameter\r\n\r\n\r\nHeaders example: \r\nThis token generated with the login or renew token\r\nkey = x-token\r\nvalue= eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI1ZjgwYWYyMDg0YjRlODEyOTBjNDMxNzgiLCJpYXQiOjE2MDIyNjkxNTMsImV4cCI6MTYwMjM1NTU1M30.Gt_8le6xQLmSS0bPyRvDUTbKiERx2OvLaMcPRSc6RWs"
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Gateway",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "x-token",
+						"type": "text",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI1ZjgwYWYyMDg0YjRlODEyOTBjNDMxNzgiLCJpYXQiOjE2MDIyNjk1OTIsImV4cCI6MTYwMjM1NTk5Mn0.hRzMcwKbyB0biFJICYHuGM6inFIGiMlMzXXBASEBhqs"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "img",
+							"type": "file",
+							"src": [],
+							"disabled": true
+						}
+					],
+					"options": {
+						"formdata": {}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/api/gateways/5f81e0c689c42721ec1a2a7a",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"gateways",
+						"5f81e0c689c42721ec1a2a7a"
+					]
+				},
+				"description": "Delete a Gateway, specifying their ID as a path parameter\r\n\r\n\r\nHeaders example: \r\nThis token generated with the login or renew token\r\nkey = x-token\r\nvalue= eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI1ZjgwYWYyMDg0YjRlODEyOTBjNDMxNzgiLCJpYXQiOjE2MDIyNjkxNTMsImV4cCI6MTYwMjM1NTU1M30.Gt_8le6xQLmSS0bPyRvDUTbKiERx2OvLaMcPRSc6RWs"
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Device",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "x-token",
+						"type": "text",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI1ZjgwYWYyMDg0YjRlODEyOTBjNDMxNzgiLCJpYXQiOjE2MDIzNTg3NzksImV4cCI6MTYwMjQ0NTE3OX0.BUybL-SoIWWbTXvoYA0n_N8GmGjmzAMiVGQjxhpJsh4"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "img",
+							"type": "file",
+							"src": [],
+							"disabled": true
+						}
+					],
+					"options": {
+						"formdata": {}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/api/devices/5f82097fbfd3d8083c9d9c80",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"devices",
+						"5f82097fbfd3d8083c9d9c80"
+					]
+				},
+				"description": "Delete a Device, specifying their ID as a path parameter\r\n\r\n\r\nHeaders example: \r\nThis token generated with the login or renew token\r\nkey = x-token\r\nvalue= eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI1ZjgwYWYyMDg0YjRlODEyOTBjNDMxNzgiLCJpYXQiOjE2MDIyNjkxNTMsImV4cCI6MTYwMjM1NTU1M30.Gt_8le6xQLmSS0bPyRvDUTbKiERx2OvLaMcPRSc6RWs"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Users",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-token",
+						"type": "text",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI1ZjgwYWYyMDg0YjRlODEyOTBjNDMxNzgiLCJpYXQiOjE2MDIyNjk1OTIsImV4cCI6MTYwMjM1NTk5Mn0.hRzMcwKbyB0biFJICYHuGM6inFIGiMlMzXXBASEBhqs"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "img",
+							"type": "file",
+							"src": [],
+							"disabled": true
+						}
+					],
+					"options": {
+						"formdata": {}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/api/users?start=0&limit=5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"users"
+					],
+					"query": [
+						{
+							"key": "start",
+							"value": "0"
+						},
+						{
+							"key": "limit",
+							"value": "5"
+						}
+					]
+				},
+				"description": "Get all users, you can specify, start (start) and amount (limit) in a query of the url, if not specified, by default it would take 0 and 10 respectively. The total represents the number of objects of this type in the database.\r\n\r\nHeaders example: \r\nThis token generated with the login or renew token\r\nkey = x-token\r\nvalue= eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI1ZjgwYWYyMDg0YjRlODEyOTBjNDMxNzgiLCJpYXQiOjE2MDIyNjkxNTMsImV4cCI6MTYwMjM1NTU1M30.Gt_8le6xQLmSS0bPyRvDUTbKiERx2OvLaMcPRSc6RWs\r\n\r\nAnswer:\r\n{\r\n    \"ok\": true,\r\n    \"total\": 3,\r\n    \"users\": [\r\n        {\r\n            \"role\": \"ADMIN_ROLE\",\r\n            \"active\": true,\r\n            \"name\": \"Zenén Hernández Martínez\",\r\n            \"email\": \"zenen@gmail.com\",\r\n            \"img\": \"86837b55-4ace-458e-8f0a-5fc701fceb0a.jpg\",\r\n            \"id\": \"5f80af2084b4e81290c43178\"\r\n        },\r\n        {\r\n            \"role\": \"USER_ROLE\",\r\n            \"active\": true,\r\n            \"name\": \"Test Test\",\r\n            \"email\": \"test@gmail.com\",\r\n            \"id\": \"5f81e4b489c42721ec1a2a7b\"\r\n        },\r\n        {\r\n            \"role\": \"USER_ROLE\",\r\n            \"active\": true,\r\n            \"name\": \"Test2 Test2\",\r\n            \"email\": \"test2@gmail.com\",\r\n            \"id\": \"5f81e4bb89c42721ec1a2a7c\"\r\n        }\r\n    ]\r\n}"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Gateways",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-token",
+						"type": "text",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI1ZjgwYWYyMDg0YjRlODEyOTBjNDMxNzgiLCJpYXQiOjE2MDIyNjk1OTIsImV4cCI6MTYwMjM1NTk5Mn0.hRzMcwKbyB0biFJICYHuGM6inFIGiMlMzXXBASEBhqs"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "img",
+							"type": "file",
+							"src": [],
+							"disabled": true
+						}
+					],
+					"options": {
+						"formdata": {}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/api/gateways?start=0&limit=10",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"gateways"
+					],
+					"query": [
+						{
+							"key": "start",
+							"value": "0"
+						},
+						{
+							"key": "limit",
+							"value": "10"
+						}
+					]
+				},
+				"description": "Get all Gateways, you can specify, start (start) and amount (limit) in a query of the url, if not specified, by default it would take 0 and 10 respectively. The total represents the number of objects of this type in the database.\r\n\r\nHeaders example: \r\nThis token generated with the login or renew token\r\nkey = x-token\r\nvalue= eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI1ZjgwYWYyMDg0YjRlODEyOTBjNDMxNzgiLCJpYXQiOjE2MDIyNjkxNTMsImV4cCI6MTYwMjM1NTU1M30.Gt_8le6xQLmSS0bPyRvDUTbKiERx2OvLaMcPRSc6RWs\r\n\r\nAnswer\r\n{\r\n    \"ok\": true,\r\n    \"total\": 5,\r\n    \"gateways\": [\r\n        {\r\n            \"name\": \"test\",\r\n            \"serial\": \"bc123v\",\r\n            \"ipv4\": \"10.2.5.50\",\r\n            \"id\": \"5f81e04289c42721ec1a2a74\"\r\n        },\r\n        {\r\n            \"name\": \"test2\",\r\n            \"serial\": \"bc1235\",\r\n            \"ipv4\": \"1.2.5.50\",\r\n            \"id\": \"5f81e07a89c42721ec1a2a76\"\r\n        },\r\n        {\r\n            \"name\": \"test3\",\r\n            \"serial\": \"bc123s\",\r\n            \"ipv4\": \"255.254.5.50\",\r\n            \"id\": \"5f81e09789c42721ec1a2a77\"\r\n        },\r\n        {\r\n            \"name\": \"test4\",\r\n            \"serial\": \"bc123c\",\r\n            \"ipv4\": \"255.254.5.250\",\r\n            \"id\": \"5f81e0ac89c42721ec1a2a78\"\r\n        },\r\n        {\r\n            \"name\": \"test5\",\r\n            \"serial\": \"bc123dd\",\r\n            \"ipv4\": \"255.254.5.150\",\r\n            \"id\": \"5f81e0c689c42721ec1a2a7a\"\r\n        }\r\n    ]\r\n}"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Devices",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-token",
+						"type": "text",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI1ZjgwYWYyMDg0YjRlODEyOTBjNDMxNzgiLCJpYXQiOjE2MDIzNTgxMjQsImV4cCI6MTYwMjQ0NDUyNH0.XrzYV6E-UZecE-evd5C7sWGI55oSswP55SsX4aIoznE"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "img",
+							"type": "file",
+							"src": [],
+							"disabled": true
+						}
+					],
+					"options": {
+						"formdata": {}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/api/devices?start=0&limit=10",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"devices"
+					],
+					"query": [
+						{
+							"key": "start",
+							"value": "0"
+						},
+						{
+							"key": "limit",
+							"value": "10"
+						}
+					]
+				},
+				"description": "Get all Devices, you can specify, start (start) and amount (limit) in a query of the url, if not specified, by default it would take 0 and 10 respectively. The total represents the number of objects of this type in the database.\r\n\r\nHeaders example: \r\nThis token generated with the login or renew token\r\nkey = x-token\r\nvalue= eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI1ZjgwYWYyMDg0YjRlODEyOTBjNDMxNzgiLCJpYXQiOjE2MDIyNjkxNTMsImV4cCI6MTYwMjM1NTU1M30.Gt_8le6xQLmSS0bPyRvDUTbKiERx2OvLaMcPRSc6RWs\r\n\r\nAnswer\r\n{\r\n    \"ok\": true,\r\n    \"total\": 2,\r\n    \"devices\": [\r\n        {\r\n            \"status\": true,\r\n            \"uid\": 1,\r\n            \"vendor\": \"IBM\",\r\n            \"data\": \"2010-12-31T00:00:00.000Z\",\r\n            \"gateway\": \"5f81e04289c42721ec1a2a74\",\r\n            \"id\": \"5f82068b71008826488756ef\"\r\n        },\r\n        {\r\n            \"status\": true,\r\n            \"uid\": 2,\r\n            \"vendor\": \"Cisco\",\r\n            \"data\": \"2020-10-30T00:00:00.000Z\",\r\n            \"gateway\": \"5f81e04289c42721ec1a2a74\",\r\n            \"id\": \"5f82097fbfd3d8083c9d9c80\"\r\n        }\r\n    ]\r\n}"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Devices by Gateway",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-token",
+						"type": "text",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI1ZjgwYWYyMDg0YjRlODEyOTBjNDMxNzgiLCJpYXQiOjE2MDIzNTgxMjQsImV4cCI6MTYwMjQ0NDUyNH0.XrzYV6E-UZecE-evd5C7sWGI55oSswP55SsX4aIoznE"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "img",
+							"type": "file",
+							"src": [],
+							"disabled": true
+						}
+					],
+					"options": {
+						"formdata": {}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/api/devices/5f81e04289c42721ec1a2a76?start=0&limit=10",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"devices",
+						"5f81e04289c42721ec1a2a76"
+					],
+					"query": [
+						{
+							"key": "start",
+							"value": "0"
+						},
+						{
+							"key": "limit",
+							"value": "10"
+						}
+					]
+				},
+				"description": "Get all Devices by one Gateway, you can specify, start (start) and amount (limit) in a query of the url, if not specified, by default it would take 0 and 10 respectively. The total represents the number of objects of this type in the database. Gateway ID as url parameter\r\n\r\nHeaders example: \r\nThis token generated with the login or renew token\r\nkey = x-token\r\nvalue= eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI1ZjgwYWYyMDg0YjRlODEyOTBjNDMxNzgiLCJpYXQiOjE2MDIyNjkxNTMsImV4cCI6MTYwMjM1NTU1M30.Gt_8le6xQLmSS0bPyRvDUTbKiERx2OvLaMcPRSc6RWs\r\n\r\nAnswer\r\n{\r\n    \"ok\": true,\r\n    \"total\": 2,\r\n    \"devices\": [\r\n        {\r\n            \"status\": true,\r\n            \"uid\": 1,\r\n            \"vendor\": \"IBM\",\r\n            \"data\": \"2010-12-31T00:00:00.000Z\",\r\n            \"gateway\": \"5f81e04289c42721ec1a2a74\",\r\n            \"id\": \"5f82068b71008826488756ef\"\r\n        },\r\n        {\r\n            \"status\": true,\r\n            \"uid\": 2,\r\n            \"vendor\": \"Cisco\",\r\n            \"data\": \"2020-10-30T00:00:00.000Z\",\r\n            \"gateway\": \"5f81e04289c42721ec1a2a74\",\r\n            \"id\": \"5f82097fbfd3d8083c9d9c80\"\r\n        }\r\n    ]\r\n}"
+			},
+			"response": []
+		},
+		{
+			"name": "Renew Token",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-token",
+						"type": "text",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI1ZjgwYWYyMDg0YjRlODEyOTBjNDMxNzgiLCJpYXQiOjE2MDIzNDM5MTksImV4cCI6MTYwMjQzMDMxOX0.LrIrTjm5Hdrb4EW7BfBa1RROuhuJBxWVCza4R4F01ec"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "img",
+							"type": "file",
+							"src": [],
+							"disabled": true
+						}
+					],
+					"options": {
+						"formdata": {}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/api/login/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"login",
+						""
+					]
+				},
+				"description": "Renew Token of user, return new token, and user with this token. This is used by the frontend, to renew the token, each time a route is accessed, and to count from that moment, the expiration time\r\n\r\nAnswer:\r\n{\r\n    \"ok\": true,\r\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI1ZjgwYWYyMDg0YjRlODEyOTBjNDMxNzgiLCJpYXQiOjE2MDIzNDM5MzgsImV4cCI6MTYwMjQzMDMzOH0.gSMwtMyM3aBLXr-5QiI44v4qDJneolVCvYGS8dqZ1cc\",\r\n    \"user\": {\r\n        \"role\": \"ADMIN_ROLE\",\r\n        \"active\": true,\r\n        \"name\": \"Zenén Hernández Martínez\",\r\n        \"email\": \"zenen@gmail.com\",\r\n        \"img\": \"86837b55-4ace-458e-8f0a-5fc701fceb0a.jpg\",\r\n        \"id\": \"5f80af2084b4e81290c43178\"\r\n    }\r\n}\r\n\r\nHeaders example: \r\nThis token generated with the login or renew token\r\nkey = x-token\r\nvalue= eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI1ZjgwYWYyMDg0YjRlODEyOTBjNDMxNzgiLCJpYXQiOjE2MDIyNjkxNTMsImV4cCI6MTYwMjM1NTU1M30.Gt_8le6xQLmSS0bPyRvDUTbKiERx2OvLaMcPRSc6RWs"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Img User",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-token",
+						"type": "text",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI1ZjgwYWYyMDg0YjRlODEyOTBjNDMxNzgiLCJpYXQiOjE2MDIyNjk1OTIsImV4cCI6MTYwMjM1NTk5Mn0.hRzMcwKbyB0biFJICYHuGM6inFIGiMlMzXXBASEBhqs"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "img",
+							"type": "file",
+							"src": "/D:/2- DOCUMENTACION/0- Udemy/4- Angular Avanzado Lleva tus bases al siguiente nivel - MEAN/3. Estructuración de nuestro proyecto/plantilla/assets/images/users/2.jpg"
+						}
+					],
+					"options": {
+						"formdata": {}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/api/users/img/86837b55-4ace-458e-8f0a-5fc701fceb0a.jpg",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"users",
+						"img",
+						"86837b55-4ace-458e-8f0a-5fc701fceb0a.jpg"
+					]
+				},
+				"description": "Gets a user image, specifying the name of the user image as a path parameter\r\n\r\nHeaders example: \r\nThis token generated with the login or renew token\r\nkey = x-token\r\nvalue= eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI1ZjgwYWYyMDg0YjRlODEyOTBjNDMxNzgiLCJpYXQiOjE2MDIyNjkxNTMsImV4cCI6MTYwMjM1NTU1M30.Gt_8le6xQLmSS0bPyRvDUTbKiERx2OvLaMcPRSc6RWs"
+			},
+			"response": []
+		},
+		{
+			"name": "Search Users By",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-token",
+						"type": "text",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI1ZjgwYWYyMDg0YjRlODEyOTBjNDMxNzgiLCJpYXQiOjE2MDIyNjk1OTIsImV4cCI6MTYwMjM1NTk5Mn0.hRzMcwKbyB0biFJICYHuGM6inFIGiMlMzXXBASEBhqs"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "img",
+							"type": "file",
+							"src": "/D:/2- DOCUMENTACION/0- Udemy/4- Angular Avanzado Lleva tus bases al siguiente nivel - MEAN/3. Estructuración de nuestro proyecto/plantilla/assets/images/users/2.jpg"
+						}
+					],
+					"options": {
+						"formdata": {}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/api/search/users/v?limit=3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"search",
+						"users",
+						"v"
+					],
+					"query": [
+						{
+							"key": "limit",
+							"value": "3"
+						}
+					]
+				},
+				"description": "returns the users, whose name matches the url parameter (search), and a query can be specified to indicate the maximum number of users to bring (limit parameter), otherwise it is specified, by default it takes the value 5\r\n\r\n\r\nHeaders example: \r\nThis token generated with the login or renew token\r\nkey = x-token\r\nvalue= eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI1ZjgwYWYyMDg0YjRlODEyOTBjNDMxNzgiLCJpYXQiOjE2MDIyNjkxNTMsImV4cCI6MTYwMjM1NTU1M30.Gt_8le6xQLmSS0bPyRvDUTbKiERx2OvLaMcPRSc6RWs"
+			},
+			"response": []
+		},
+		{
+			"name": "Search Gateways By",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-token",
+						"type": "text",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI1ZjgwYWYyMDg0YjRlODEyOTBjNDMxNzgiLCJpYXQiOjE2MDIzNTgxMjQsImV4cCI6MTYwMjQ0NDUyNH0.XrzYV6E-UZecE-evd5C7sWGI55oSswP55SsX4aIoznE"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "img",
+							"type": "file",
+							"src": "/D:/2- DOCUMENTACION/0- Udemy/4- Angular Avanzado Lleva tus bases al siguiente nivel - MEAN/3. Estructuración de nuestro proyecto/plantilla/assets/images/users/2.jpg"
+						}
+					],
+					"options": {
+						"formdata": {}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/api/search/gateways/2?limit=3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"search",
+						"gateways",
+						"2"
+					],
+					"query": [
+						{
+							"key": "limit",
+							"value": "3"
+						}
+					]
+				},
+				"description": "returns the gateways, whose name matches the url parameter (search), and a query can be specified to indicate the maximum number of users to bring (limit parameter), otherwise it is specified, by default it takes the value 5\r\n\r\n\r\nHeaders example: \r\nThis token generated with the login or renew token\r\nkey = x-token\r\nvalue= eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI1ZjgwYWYyMDg0YjRlODEyOTBjNDMxNzgiLCJpYXQiOjE2MDIyNjkxNTMsImV4cCI6MTYwMjM1NTU1M30.Gt_8le6xQLmSS0bPyRvDUTbKiERx2OvLaMcPRSc6RWs"
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

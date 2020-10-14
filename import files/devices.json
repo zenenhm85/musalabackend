@@ -1,0 +1,43 @@
+/* 1 */
+{
+    "_id" : ObjectId("5f864b102ebd8322e562a6b2"),
+    "status" : true,
+    "uid" : 1,
+    "vendor" : "Cisco",
+    "date" : ISODate("2020-10-30T00:00:00.000Z"),
+    "gateway" : ObjectId("5f83cae72e638c097915a3a5"),
+    "__v" : 0
+}
+
+/* 2 */
+{
+    "_id" : ObjectId("5f865484abc04423f370592e"),
+    "status" : true,
+    "uid" : 2,
+    "vendor" : "dfsdfsd",
+    "date" : ISODate("2016-05-13T00:00:00.000Z"),
+    "gateway" : ObjectId("5f83cae72e638c097915a3a5"),
+    "__v" : 0
+}
+
+/* 3 */
+{
+    "_id" : ObjectId("5f865854abc04423f3705932"),
+    "status" : false,
+    "uid" : 0,
+    "vendor" : "dfdsfsd",
+    "date" : ISODate("2010-10-10T00:00:00.000Z"),
+    "gateway" : ObjectId("5f83cad32e638c097915a3a3"),
+    "__v" : 0
+}
+
+/* 4 */
+{
+    "_id" : ObjectId("5f866cc5abc04423f3705934"),
+    "status" : false,
+    "uid" : 3,
+    "vendor" : "dsafds",
+    "date" : ISODate("2012-12-12T00:00:00.000Z"),
+    "gateway" : ObjectId("5f83cae72e638c097915a3a5"),
+    "__v" : 0
+}

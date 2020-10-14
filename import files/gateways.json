@@ -1,0 +1,71 @@
+/* 1 */
+{
+    "_id" : ObjectId("5f83cad32e638c097915a3a3"),
+    "name" : "test1",
+    "serial" : "aaaaaaaa",
+    "ipv4" : "255.254.5.2",
+    "__v" : 0
+}
+
+/* 2 */
+{
+    "_id" : ObjectId("5f83cade2e638c097915a3a4"),
+    "name" : "test2",
+    "serial" : "bbbbbbbbbb",
+    "ipv4" : "255.254.5.1",
+    "__v" : 0
+}
+
+/* 3 */
+{
+    "_id" : ObjectId("5f83cae72e638c097915a3a5"),
+    "name" : "test3",
+    "serial" : "bc123dc",
+    "ipv4" : "255.254.5.4",
+    "__v" : 0
+}
+
+/* 4 */
+{
+    "_id" : ObjectId("5f83e44abb860a113b73feea"),
+    "name" : "test5",
+    "serial" : "bc123df",
+    "ipv4" : "255.254.5.6",
+    "__v" : 0
+}
+
+/* 5 */
+{
+    "_id" : ObjectId("5f83e661bb860a113b73feeb"),
+    "name" : "test4",
+    "serial" : "aght57dff",
+    "ipv4" : "10.2.5.50",
+    "__v" : 0
+}
+
+/* 6 */
+{
+    "_id" : ObjectId("5f83e677bb860a113b73feec"),
+    "name" : "tes6",
+    "serial" : "djhsdjkasdhla",
+    "ipv4" : "100.20.50.50",
+    "__v" : 0
+}
+
+/* 7 */
+{
+    "_id" : ObjectId("5f8520d6f57a0e101fc2e779"),
+    "name" : "test7",
+    "serial" : "dfsdfs",
+    "ipv4" : "10.2.5.250",
+    "__v" : 0
+}
+
+/* 8 */
+{
+    "_id" : ObjectId("5f8520f5f57a0e101fc2e77a"),
+    "name" : "test8",
+    "serial" : "hgkjhdgsfj",
+    "ipv4" : "10.2.50.50",
+    "__v" : 0
+}
